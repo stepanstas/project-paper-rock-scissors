@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper - Rock - Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"> 
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Rock Paper Scissors</h1>
+    </header>
+    <main>
+        <p class="game-prompt">Choose your weapon...</p>
+        <div class="game-options">
+            <button id="rock">
+                <i class="fa-solid fa-hand-back-fist"></i>
+            </button>
+            <button id="paper">
+                <i class="fa-solid fa-hand"></i>
+            </button>
+            <button id="scissors">
+                <i class="fa-solid fa-hand-scissors"></i>
+            </button>
+        </div>
+        <div class="scoreboard">
+            <div class="player-board">
+                <span class="score-label" id="player-label">Your score</span>
+                <div class="score" id="player-score">0</div>
+            </div>
+            <div class="player-board">
+                <span class="score-label" id="computer-label">Computer score</span>
+                <div class="score" id="computer-score">0</div>
+            </div>
+            <div class="result"></div>
+        </div>
+        <section>
+            <button id="game-reset-btn">Start over!</button>
+        </section>
+    </main>
+    <footer>
+        <small>Created by Stepan S</small>
+    </footer>
+</body>
+</html>
