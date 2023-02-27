@@ -9,6 +9,8 @@ I have learned about:
 - Conditional statements
 - Creating and calling functions
 
+The project can be seen live here: https://stepanstas.github.io/project-rock-paper-scissors/
+
 
 
 
