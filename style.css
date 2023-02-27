@@ -1,3 +1,183 @@
+html {
+    font-family: "Comic Sans MS", Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    box-sizing: border-box;
+    height: 100%;
+}
 
+:root {
+    --primary-bg-color: #000;
+    --secondary-bg-color: #fff;
+    --tertiary-bg-color: #3b3b3b;
+    --primary-text-color: #fff;
+    --secondary-text-color: #000;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    background: var(--primary-bg-color);
+    color: var(--primary-text-color);
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1rem;
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+}
+
+.page-title {
+    font-size: 3rem;
+}
+
+.page-subtitle,
+.game-prompt {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.game-options {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 1rem;
+}
+
+.game-options > button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    font-family: inherit;
+    font-size: 4rem;
+    color: inherit;
+    text-align: center;
+    border: 3px solid var(--secondary-bg-color);
+    border-radius: 5px;
+    outline: none;
+    background: var(--primary-bg-color);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.game-options > button:hover {
+    background: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+}
+
+.scoreboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    place-content: center;
+    border-radius: 5px;
+    gap: 1rem;
+    margin: 2rem auto 0 auto;
+}
+
+.player-board,
+.computer-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    background: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+}
+
+.score-label,
+.score {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.result {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    place-self: center;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#game-reset-btn {
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: inherit;
+    text-align: center;
+    border: 3px solid var(--secondary-bg-color);
+    border-radius: 5px;
+    outline: none;
+    background: var(--primary-bg-color);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 501px) {
+    .page-title,
+    .game-options > button {
+        font-size: 2rem;
+    }
+
+    .page-subtitle,
+    .game-prompt,
+    .result {
+        font-size: 1.5rem;
+    }
+
+    .score-label,
+    .score {
+        font-size: 1.25rem;
+    }
+
+    #game-reset-btn {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 385px) {
+    .game-options > button {
+        padding: 1rem;
+    }
+}
 
 
