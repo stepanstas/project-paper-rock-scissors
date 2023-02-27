@@ -58,6 +58,7 @@ footer {
 
 .page-title {
     font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 .page-subtitle,
@@ -138,6 +139,7 @@ footer {
 }
 
 #game-reset-btn {
+    display: none;
     font-family: inherit;
     font-size: 1.25rem;
     font-weight: bold;
@@ -150,6 +152,15 @@ footer {
     padding: 0.5rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+}
+
+#game-reset-btn:hover {
+    background: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+}
+
+#game-reset-btn.active {
+    display: flex;
 }
 
 @media (max-width: 501px) {
