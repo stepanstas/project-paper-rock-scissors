@@ -26,8 +26,6 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
-    justify-items: center;
-    align-items: center;
     width: 100%;
     max-width: 1000px;
     height: 100%;
@@ -47,7 +45,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 2rem 1rem;
+    padding: 1rem;
     width: 100%;
 }
 
@@ -105,7 +103,7 @@ footer {
     place-content: center;
     border-radius: 5px;
     gap: 1rem;
-    margin: 2rem auto 0 auto;
+    margin: 1rem auto 0 auto;
 }
 
 .player-board,
@@ -133,13 +131,70 @@ footer {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
+    color: var(--primary-text-color);
     place-self: center;
     padding: 1rem;
     border-radius: 5px;
 }
 
-#game-reset-btn {
+.game-result.active {
     display: none;
+}
+
+/* Modal start */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: modal-animation 0.5s ease-in;
+}
+
+.modal-overlay.active {
+    display: flex;
+    animation: modal-show 0.2s ease-in;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--secondary-bg-color);
+    border-radius: 5px;
+    width: auto;
+    max-width: 90%;
+    height: auto;
+    max-height: 90%;
+}
+
+@keyframes modal-animation {
+    from {
+        opacity: 0;
+    } 
+    
+    to {
+        opacity: 1;
+    }
+}
+
+.final-game-result {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary-text-color);
+}
+
+#game-reset-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: inherit;
     font-size: 1.25rem;
     font-weight: bold;
@@ -148,19 +203,11 @@ footer {
     border: 3px solid var(--secondary-bg-color);
     border-radius: 5px;
     outline: none;
-    background: var(--primary-bg-color);
-    padding: 0.5rem;
+    overflow: hidden;
+    background: #ff0000;
+    padding: 1rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-}
-
-#game-reset-btn:hover {
-    background: var(--secondary-bg-color);
-    color: var(--secondary-text-color);
-}
-
-#game-reset-btn.active {
-    display: flex;
 }
 
 @media (max-width: 501px) {
@@ -185,6 +232,10 @@ footer {
     .score,
     #game-reset-btn {
         font-size: 1rem;
+    }
+
+    .modal {
+        padding: 1rem;
     }
 }
 
