@@ -4,6 +4,8 @@ const scissorsBtn = document.querySelector("#scissors");
 const playerScoreDisplay = document.querySelector("#player-score");
 const computerScoreDisplay = document.querySelector("#computer-score");
 const resultsDisplay = document.querySelector(".result");
+const modal = document.querySelector(".modal-overlay");
+const finalResult = document.querySelector(".final-game-result");
 const resetBtn = document.querySelector("#game-reset-btn");
 
 let playerScore = 0;
@@ -36,14 +38,14 @@ function playRound(playerSelection, computerSelection) {
 
   // Check for a winner
   if (playerScore === 5) {
-    resultsDisplay.textContent = "You won the game!";
-    resultsDisplay.style.background = "#ff0000";
-    resetBtn.classList.add("active");
+    modal.classList.toggle("active");
+    finalResult.textContent = "You won the game!";
+    resultsDisplay.classList.add("active");
     disableButtons();
   } else if (computerScore === 5) {
-    resultsDisplay.textContent = "You lost the game!";
-    resultsDisplay.style.background = "#ff0000";
-    resetBtn.classList.add("active");
+    modal.classList.toggle("active");
+    finalResult.textContent = "You lost the game!";
+    resultsDisplay.classList.add("active");
     disableButtons();
   }
 }
@@ -66,15 +68,25 @@ scissorsBtn.addEventListener("click", () => {
   playRound("scissors", computerSelection());
 });
 
-resetBtn.addEventListener("click", () => {
+function resetGame() {
+  modal.classList.remove("active");
   playerScore = 0;
   computerScore = 0;
   playerScoreDisplay.textContent = playerScore;
   computerScoreDisplay.textContent = computerScore;
   resultsDisplay.textContent = "";
   resultsDisplay.style.background = "";
-  resetBtn.classList.remove("active");
   rockBtn.disabled = false;
   paperBtn.disabled = false;
   scissorsBtn.disabled = false;
+}
+
+resetBtn.addEventListener("click", () => {
+  resetGame();
 });
+
+modal.addEventListener("click", (event) => {
+  if(event.target.classList.contains("active")) {
+    resetGame();
+  }
+})
